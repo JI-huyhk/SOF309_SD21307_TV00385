@@ -2,49 +2,62 @@ package com.poly.sof309.ui.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 /**
  * =========================================================================
- * [Y4] MẪU PAGE OBJECT MODEL (POM) CHO TRANG ĐĂNG NHẬP
- * Class này chỉ quản lý các phần tử (Locator) và hành động trên trang Web.
+ * [Y4] PAGE OBJECT MODEL (POM) CHO TRANG ĐĂNG NHẬP VERDELLE HOTEL
  * =========================================================================
  */
 public class LoginPage {
     private WebDriver driver;
+    private WebDriverWait wait;
 
-    // 1. Định nghĩa các Locator trên trang đăng nhập của web cá nhân
-    private By txtUsername = By.id("username");
-    private By txtPassword = By.id("password");
-    private By btnLogin = By.xpath("//button[@type='submit']");
-    private By lblErrorMessage = By.id("error-message");
+    // 1. Locators hỗ trợ cả tìm theo name lẫn id trong form đăng nhập
+    private By txtPhone = By.xpath("//input[@name='phone' or @name='phoneNumber' or @id='phone' or @id='phoneNumber' or @type='tel' or @name='username']");
+    private By txtPassword = By.xpath("//input[@name='password' or @id='password' or @type='password']");
+    private By btnLogin = By.xpath("//button[@type='submit'] | //input[@type='submit']");
+    private By lblErrorMessage = By.xpath("//*[contains(@class, 'alert') or contains(@class, 'error') or @id='error-message']");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
-    // 2. Các hành động nghiệp vụ
-    public void enterUsername(String username) {
-        driver.findElement(txtUsername).clear();
-        driver.findElement(txtUsername).sendKeys(username);
+    // 2. Thao tác nghiệp vụ
+    public void enterPhone(String phone) {
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(txtPhone));
+        element.clear();
+        element.sendKeys(phone);
     }
 
     public void enterPassword(String password) {
-        driver.findElement(txtPassword).clear();
-        driver.findElement(txtPassword).sendKeys(password);
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(txtPassword));
+        element.clear();
+        element.sendKeys(password);
     }
 
     public void clickLogin() {
-        driver.findElement(btnLogin).click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(btnLogin));
+        element.click();
     }
 
-    public void login(String username, String password) {
-        enterUsername(username);
+    public void login(String phone, String password) {
+        enterPhone(phone);
         enterPassword(password);
         clickLogin();
     }
 
     public String getErrorMessage() {
-        return driver.findElement(lblErrorMessage).getText();
+        try {
+            WebElement error = wait.until(ExpectedConditions.visibilityOfElementLocated(lblErrorMessage));
+            return error.getText();
+        } catch (Exception e) {
+            return "";
+        }
     }
 }
-
