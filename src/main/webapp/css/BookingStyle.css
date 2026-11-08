@@ -1,0 +1,425 @@
+:root {
+    --bg-color: #dce7f7;
+    --card-bg: #ffffff;
+    --text-color: #212529;
+    --sub-text: #6c757d;
+    --border-color: #e0e0e0;
+    --primary-teal: #0097a7;
+    --btn-success: #43a047;
+
+    --progress-bg: #f1f3f5;
+    --step-num-bg: #e0e0e0;
+    --step-num-text: #495057;
+    --item-hover-bg: #f8f9fa;
+    --input-bg: #f1f3f5;
+    --modal-overlay: rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode {
+    --bg-color: #0a0a0a;
+    --card-bg: #1e1e1e;
+    --text-color: #ffffff;
+    --sub-text: #888888;
+    --border-color: #2d2d2d;
+    --primary-teal: #00bcd4;
+    --btn-success: #4caf50;
+    --progress-bg: #161616;
+    --step-num-bg: #333333;
+    --step-num-text: #ffffff;
+    --item-hover-bg: #242424;
+    --input-bg: #121212;
+    --modal-overlay: rgba(0, 0, 0, 0.75);
+}
+
+/* Thanh tiến trình đặt phòng (Booking Steps) */
+.booking-progress-bar {
+    background: var(--progress-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 20px 0;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.progress-steps-container {
+    max-width: 650px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 40px;
+}
+
+.progress-line-back {
+    position: absolute;
+    top: 12px;
+    left: 40px;
+    right: 40px;
+    height: 2px;
+    background: var(--border-color);
+    z-index: 1;
+    transition: background 0.3s;
+}
+
+.progress-line-fill {
+    position: absolute;
+    top: 12px;
+    left: 40px;
+    width: 0%;
+    height: 2px;
+    background: var(--primary-teal);
+    z-index: 2;
+    transition: width 0.3s ease, background 0.3s;
+}
+
+.step-item {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--sub-text);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.step-item.active {
+    color: var(--primary-teal);
+    font-weight: bold;
+}
+
+.step-number {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--step-num-bg);
+    color: var(--step-num-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    margin-bottom: 8px; /* Tăng nhẹ khoảng cách giữa vòng tròn và chữ */
+    transition: all 0.3s;
+}
+
+.step-item.active .step-number {
+    background: var(--primary-teal);
+    color: #000;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.4);
+}
+
+body.dark-mode .step-item.active .step-number {
+    color: #ffffff;
+}
+
+/* Tinh chỉnh khối thông tin */
+.relative-block {
+    position: relative;
+}
+.btn-edit-trigger {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: var(--primary-teal);
+    text-decoration: underline;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+.btn-edit-trigger:hover {
+    color: #00e5ff;
+}
+
+/* Hộp checkbox tùy chọn đặc biệt */
+.custom-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: all 0.3s;
+}
+.custom-checkbox-label:hover {
+    border-color: var(--primary-teal);
+    background: var(--item-hover-bg);
+}
+.custom-checkbox-label input[type="checkbox"] {
+    accent-color: var(--primary-teal);
+    width: 16px;
+    height: 16px;
+}
+
+/* Tóm tắt ngày nhận/trả phòng ở cột phải */
+.booking-summary-dates {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: background 0.3s, border-color 0.3s;
+}
+.date-box-item {
+    flex: 1;
+}
+.date-box-label {
+    font-size: 0.7rem;
+    color: var(--sub-text);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    transition: color 0.3s;
+}
+.date-box-value {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+/* Khối tổng tiền chốt đơn */
+.price-final-card {
+    background: var(--card-bg);
+    border: 2px solid var(--primary-teal);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.1);
+    color: var(--text-color);
+    transition: all 0.3s;
+}
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-checkout-submit {
+    width: 100%;
+    margin-top: 15px;
+    padding: 14px;
+    background: var(--btn-success);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.btn-checkout-submit:hover {
+    background: #45a049;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.4);
+}
+
+/* CSS CUSTOM POPUP MODAL ĐỒNG BỘ DARK MODE CỦA MINT (KHÔNG XÀI TAILWIND) */
+.custom-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--modal-overlay);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, background 0.3s;
+}
+.custom-modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.custom-modal-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    width: 100%;
+    max-width: 650px;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    color: var(--text-color);
+}
+.custom-modal-overlay.show .custom-modal-card {
+    transform: translateY(0);
+}
+.modal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 20px;
+}
+.modal-col-full {
+    grid-column: span 2;
+}
+.modal-input-wrapper {
+    position: relative;
+    border: 1px solid var(--border-color);
+    background: var(--input-bg);
+    border-radius: 8px;
+    padding: 8px 12px;
+    transition: background 0.3s, border-color 0.3s;
+}
+.modal-input-wrapper:focus-within {
+    border-color: var(--primary-teal);
+}
+.modal-input-wrapper label {
+    position: absolute;
+    top: -9px;
+    left: 10px;
+    background: var(--card-bg);
+    padding: 0 5px;
+    font-size: 0.75rem;
+    color: var(--primary-teal);
+    font-weight: 600;
+    transition: background 0.3s;
+}
+.modal-input-wrapper input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    padding-top: 4px;
+}
+.phone-flex-field {
+    display: flex;
+    gap: 8px;
+}
+.voucher-section {
+    background: rgba(230, 81, 0, 0.04);
+    border: 1px dashed #e65100;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+.voucher-title {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #e65100;
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.voucher-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.voucher-item:hover {
+    border-color: #e65100;
+}
+.voucher-info {
+    display: flex;
+    flex-direction: column;
+}
+.voucher-code {
+    font-weight: bold;
+    font-size: 0.85rem;
+    color: var(--text-color);
+}
+.voucher-desc {
+    font-size: 0.75rem;
+    color: var(--sub-text);
+}
+.price-strike {
+    text-decoration: line-through;
+    color: var(--sub-text);
+    font-size: 1.1rem;
+    margin-right: 8px;
+}
+
+/* ================= BỔ SUNG CẤU TRÚC 2 CỘT BIỆT LẬP (CHUẨN ẢNH 2 & 3) ================= */
+
+/* Khung bao bọc chính chia 2 cột */
+.vdl-booking-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start; /* Giữ sidebar bên phải không bị kéo dài bất thường */
+    box-sizing: border-box;
+}
+
+/* Cột bên trái: Thông tin & Yêu cầu (Chiếm phần lớn không gian) */
+.vdl-booking-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+/* Cột bên phải: Sidebar chứa Ngày tháng & Hóa đơn (Cố định độ rộng) */
+.vdl-booking-sidebar {
+    width: 380px;
+    min-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 20px; /* Hiệu ứng ghim chặt cạnh màn hình khi cuộn chuột xuống như Ảnh 3 */
+    box-sizing: border-box;
+}
+
+/* Định dạng lại các card thông tin ở cột trái cho đồng bộ */
+.info-card-block {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    padding: 24px !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02) !important;
+    box-sizing: border-box;
+}
+
+/* Tiêu đề của từng khối card */
+.block-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Khối quyền lợi đi kèm màu xanh lá */
+.policy-pink-box {
+    border-left: 4px solid #4caf50 !important;
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    box-sizing: border-box;
+}
+.policy-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+.policy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

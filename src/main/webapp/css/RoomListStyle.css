@@ -1,0 +1,247 @@
+/* --- Thiết lập chung toàn trang --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* Nền tối sang trọng */
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* --- Video Nền (Background Video) --- */
+.video-bg-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.video-bg-content video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4) contrast(1.1); /* Làm tối video nền để nổi bật chữ */
+}
+
+/* Khoảng đệm cho banner phía trên */
+.header-banner {
+    height: 80px;
+}
+
+/* --- Khung chứa chính (Layout) --- */
+.content-section {
+    position: relative;
+    z-index: 1;
+    padding: 40px 20px;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Thanh Tìm Kiếm (Search Box) --- */
+.search-box {
+    background: rgba(30, 30, 30, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.toggle-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: #aaa;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    color: #ffca28;
+    border-bottom: 2px solid #ffca28;
+}
+
+/* Grid của form tìm kiếm */
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.col-4 { flex: 4 1 300px; }
+.col-3 { flex: 3 1 200px; }
+.col-2 { flex: 2 1 150px; }
+
+.input-label {
+    font-size: 0.85rem;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.date-range-picker, .select-custom, .input-text {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.select-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.input-text::placeholder {
+    color: #888;
+}
+
+.input-text:focus, .date-range-picker:focus-within {
+    border-color: #ffca28;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.btn-search {
+    background: #ffca28;
+    color: #121212;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.btn-search:hover {
+    background: #ffa000;
+}
+
+.flexible-checkbox {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* --- Danh Sách Phòng (Rooms Grid) --- */
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* Thẻ phòng (Room Card) */
+.room-card {
+    background: rgba(25, 25, 25, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Badge trạng thái (Ví dụ: Hết phòng, Ưu đãi...) */
+.room-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #e53935;
+    color: white;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 4px;
+    z-index: 2;
+    text-transform: uppercase;
+}
+
+/* Ảnh phòng và hiệu ứng chuyển ảnh */
+.room-thumb {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.room-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.room-card:hover .room-thumb img {
+    transform: scale(1.05);
+}
+
+/* Các nút điều hướng slide ảnh ẩn/hiện khi hover */
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.room-thumb:hover .slide-btn {
+    opacity: 1;
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+.slide-btn:hover { background: rgba(0,0,0,0.8); }
+
+/* Nút đặt phòng bên trong chi tiết */
+.btn-book-room {
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-book-room:hover {
+    background: #ff5722 !important;
+    transform: scale(1.03);
+}

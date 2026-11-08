@@ -1,0 +1,402 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --sub-text: #7f8c8d;
+    --border-color: #eef2f5;
+    --search-bg: #ffffff;
+    --overlay-color: rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --sub-text: #a0a0a0;
+    --border-color: #333333;
+    --search-bg: #2a2a2a;
+    --overlay-color: rgba(0, 0, 0, 0.75);
+}
+
+/* Áp dụng màu nền và màu chữ toàn trang */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .dropdown-item:hover {
+    background-color: #2a2a2a !important;
+    cursor: pointer;
+}
+
+body.dark-mode .dropdown-item:hover h5 {
+    color: #00bcd4 !important;
+}
+
+body.dark-mode .dropdown-item:hover p {
+    color: #ffffff !important;
+}
+body.dark-mode .calendar-dropdown,
+body.dark-mode .datepicker,
+body.dark-mode .ui-datepicker-calendar,
+body.dark-mode [class*="datepicker-dropdown"] {
+    background-color: var(--card-bg) !important;
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-color) !important;
+}
+
+/* Style lại các thẻ chọn Tháng/Năm bên trong lịch */
+body.dark-mode .datepicker select,
+body.dark-mode .calendar-dropdown select {
+    background-color: var(--search-bg) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Định dạng chữ số ngày ở trạng thái bình thường */
+body.dark-mode .calendar-day,
+body.dark-mode .datepicker table tr td,
+body.dark-mode .ui-state-default {
+    color: var(--text-color) !important;
+    background: transparent !important;
+    transition: all 0.2s ease;
+}
+
+body.dark-mode .calendar-day:hover,
+body.dark-mode .datepicker table tr td:hover,
+body.dark-mode .ui-state-default:hover {
+    background-color: #00bcd4 !important;
+    color: #ffffff !important;
+}
+
+/* Lớp phủ màn hình chính */
+.overlay {
+    background: var(--overlay-color);
+    min-height: 100vh;
+    transition: background 0.3s;
+}
+
+/* Thanh Navbar */
+.navbar {
+    background: rgba(0, 0, 0, 0.95);
+    padding: 15px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    border-left: 1px solid rgba(255,255,255,0.2);
+    padding-left: 15px;
+}
+
+.user-avatar-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00bcd4;
+    background: #fff;
+}
+
+.hamburger-menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.hamburger-icon-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.hamburger-icon-btn:hover {
+    color: #00bcd4;
+}
+
+.hamburger-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--card-bg);
+    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1100;
+    margin-top: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.hamburger-dropdown.show {
+    display: block;
+}
+
+.hamburger-dropdown a, .hamburger-dropdown div.menu-item {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s;
+    box-sizing: border-box;
+}
+
+.hamburger-dropdown a:hover, .hamburger-dropdown div.menu-item:hover {
+    background-color: var(--border-color);
+    color: #00bcd4;
+}
+
+.toggle-theme-switch {
+    margin-left: auto;
+    pointer-events: none;
+}
+
+/* Form tìm kiếm và các Dropdown bên trong */
+.search-container {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: background 0.3s, border 0.3s;
+}
+
+.search-box input, #dateRangeInput, #peopleInput {
+    background-color: var(--search-bg) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--border-color) !important;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.search-dropdown, .people-dropdown {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-color) !important;
+}
+
+.dropdown-item h5, .counter-label h6, .age-hint {
+    color: var(--text-color) !important;
+}
+
+.dropdown-item p, .counter-label p, #childAgeInputsContainer span {
+    color: var(--sub-text) !important;
+}
+
+.dropdown-divider, hr.dropdown-divider {
+    border-top: 1px solid var(--border-color) !important;
+}
+
+/* Thẻ điểm đến (Destination Cards) */
+.dest-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.dest-card p {
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+}
+
+/* Custom Nhãn Bộ Lọc */
+.realtime-badge-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.realtime-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+body.dark-mode .realtime-title {
+    color: var(--text-color);
+}
+
+.realtime-badge-value {
+    font-size: 0.9rem;
+    background: #ff9800;
+    color: #ffffff;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.realtime-badge-value.cyan {
+    background: #00bcd4;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: var(--border-color);
+    border: 1px solid var(--sub-text);
+    border-radius: 4px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #00bcd4;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    transition: transform 0.1s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.ruler-container {
+    position: relative;
+    width: 100%;
+    height: 24px;
+    margin-top: 6px;
+}
+
+.ruler-ticks {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    pointer-events: none;
+}
+
+.ruler-ticks li {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.ruler-ticks li::before {
+    content: '';
+    width: 3px;
+    height: 8px;
+    background: var(--text-color);
+    margin-bottom: 4px;
+}
+.counter-controls span {
+    color: var(--text-color) !important;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+/* 1. Thanh ngang màu xám duy nhất (Đường ray cố định) */
+.dual-range-wrapper {
+    position: relative;
+    width: 100%;
+    height: 6px;                 /* Độ dày thanh trượt */
+    background: #e4e4e4 !important; /* Màu xám đặc làm nền trục chính */
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;         /* Ép tâm các phần tử con vào giữa trục dọc */
+}
+
+/* 2. Đưa khung chứa input về dạng hoàn toàn trong suốt */
+.range-slider-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: transparent !important; /* Xóa sạch nền mặc định của trình duyệt */
+    pointer-events: none;               /* Không cho thân input che chuột */
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    outline: none;
+    z-index: 2;
+    opacity: 1 !important;              /* Đảm bảo không bị mờ */
+}
+
+/* Triệt tiêu hoàn toàn rãnh trượt ẩn mặc định của trình duyệt */
+.range-slider-input::-webkit-slider-runnable-track {
+    background: transparent !important;
+    border: none !important;
+}
+.range-slider-input::-moz-range-track {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* 3. Cấu hình NÚT TRÒN MÀU XANH ĐẶC KHÍT (Cho Chrome, Cốc Cốc, Edge) */
+.range-slider-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 16px;                       /* Kích thước nút tròn */
+    width: 16px;
+    border-radius: 50%;
+    background: #00bef0 !important;     /* Ép màu xanh đặc, rõ nét 100% không trong suốt */
+    border: none !important;            /* Không lấy viền trắng thừa */
+    cursor: pointer;
+    pointer-events: auto;                /* Bật lại tính năng kéo thả cho nút tròn */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4); /* Đổ bóng nhẹ để nút nổi hẳn lên trên thanh xám */
+    opacity: 1 !important;              /* Hiện rõ nét hoàn toàn */
+
+    /* Ép nút nằm chuẩn xác giữa trục thanh xám */
+    margin-top: -5px;                   /* Công thức: (6px thanh / 2) - (16px nút / 2) = -5px */
+}
+
+/* 4. Cấu hình NÚT TRÒN MÀU XANH ĐẶC KHÍT (Cho trình duyệt Firefox) */
+.range-slider-input::-moz-range-thumb {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #00bef0 !important;     /* Màu xanh đặc rõ nét */
+    border: none !important;
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    opacity: 1 !important;
+}
+
+

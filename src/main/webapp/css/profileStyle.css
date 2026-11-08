@@ -1,0 +1,359 @@
+/* ==========================================================================
+   1. RESET CHUNG & ĐỊNH DẠNG NỀN ĐEN LUXURY
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0b0c10 !important;
+    color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   3. KHUNG CHỨA PROFILE & BANNER
+   ========================================================================== */
+.profile-container {
+    background: #141519;
+    width: 750px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.08);
+    overflow: hidden;
+    position: relative;
+    margin: 110px auto 35px auto;
+}
+
+.profile-banner-top {
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+.banner-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.hutao-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ==========================================================================
+   4. LAYOUT THÂN DƯỚI & AVATAR
+   ========================================================================== */
+.profile-body-layout {
+    display: flex;
+    padding: 0 25px 25px 25px;
+    position: relative;
+    background: #141519;
+}
+
+.profile-sidebar-info {
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.avatar-container-block {
+    margin-top: -75px;
+    margin-bottom: 15px;
+    z-index: 10;
+}
+
+.avatar-wrapper {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 3px solid #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    background: #141519;
+    cursor: pointer;
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-overlay, .banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d4af37;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.banner-overlay { font-size: 14px; font-weight: 600; gap: 8px; }
+.avatar-overlay i { font-size: 24px; }
+
+.avatar-wrapper:hover .avatar-overlay,
+.banner-wrapper:hover .banner-overlay {
+    opacity: 1;
+}
+
+#avatarInput, #bannerInput {
+    display: none;
+}
+
+.profile-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #d4af37;
+    margin-bottom: 4px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.profile-username {
+    font-size: 13px;
+    color: #a0a5b5;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.divider {
+    width: 80%;
+    border: none;
+    border-top: 1px solid #2a2415;
+    margin: 10px 0;
+}
+
+.btn-edit-profile {
+    width: 100%;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #d4af37;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.btn-edit-profile:hover {
+    background: rgba(212, 175, 55, 0.15);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.followers-count {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #a0a5b5;
+    text-align: center;
+}
+
+.profile-main-content {
+    width: 68%;
+    padding-top: 25px;
+}
+
+/* ==========================================================================
+   5. CÁC Ô NHẬP LIỆU FORM & SOCIAL NETWORKS
+   ========================================================================== */
+.input-group {
+    position: relative;
+    margin-bottom: 22px;
+    border: 1px solid #2d2617;
+    border-radius: 8px;
+    background-color: #1a1c23;
+    padding: 10px 15px;
+}
+
+.input-group.readonly-group {
+    background-color: #101115;
+    border-color: #222;
+}
+
+.input-label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #141519;
+    padding: 0 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #d4af37;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.input-group input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    color: #f0f0f0;
+}
+
+.password-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-password-link {
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.edit-password-link:hover {
+    color: #f3cf65;
+}
+
+.social-networks-box {
+    border: 1px solid #2d2617;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 25px;
+    position: relative;
+    background-color: #1a1c23;
+}
+
+.social-title {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #141519;
+    padding: 0 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #d4af37;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.social-item:last-child { margin-bottom: 0; }
+.social-item i { font-size: 18px; width: 25px; }
+.facebook-icon { color: #d4af37; }
+.mail-icon { color: #a0a5b5; }
+.instagram-icon { color: #d4af37; }
+
+.social-text {
+    flex: 1;
+    color: #d1d5db;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+.verified-icon { color: #d4af37; font-size: 14px; }
+
+.btn-save {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    filter: brightness(1.1);
+}
+
+.btn-signout {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: #f43f5e;
+    border: 1px solid #f43f5e;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: all 0.3s ease;
+}
+
+.btn-signout:hover {
+    background: #f43f5e;
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(244, 63, 94, 0.3);
+}
+
+/* ==========================================================================
+   6. FOOTER CHÂN TRANG & TOAST
+   ========================================================================== */
+.profile-footer {
+    background-color: #0a0b0e !important;
+    border-top: 1px solid #2a2415;
+    color: #f0f0f0;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+    width: 100%;
+    font-size: 13px;
+}
+
+.footer-hotline { margin-bottom: 5px; font-weight: 600; color: #d4af37; }
+.footer-copy { color: #a0a5b5; }
+
+.toast-success-box {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+    color: #000000;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.4s ease;
+    animation: toastSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes toastSlideIn {
+    from { transform: translateX(120%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}

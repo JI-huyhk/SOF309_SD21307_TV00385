@@ -1,0 +1,183 @@
+/* ==========================================================================
+   CSS BLACK & GOLD LUXURY - ÁP DỤNG CHO TRANG DANH SÁCH PHÒNG (ROOM LIST)
+   ========================================================================== */
+
+/* --- 1. Reset Nền & Bố Cục Toàn Trang --- */
+html, body {
+    background-color: #0d0d0d !important; /* Đen tuyền tuyệt đối */
+    color: #ffffff !important;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Ép toàn bộ các wrapper nội dung cũ từ màu xanh/trắng sang màu đen */
+.main-content,
+.content-section,
+.main-container {
+    background-color: #0d0d0d !important;
+    background: #0d0d0d !important;
+    width: 100%;
+}
+
+.header-banner {
+    background: #0d0d0d !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Ẩn video hoặc ảnh nền màu xanh cũ nếu có */
+.video-bg-content,
+.video-bg-content video {
+    display: none !important;
+}
+
+/* --- 2. Bộ Lọc Tìm Kiếm (Search Box) Luxury --- */
+.search-box {
+    position: relative;
+    z-index: 100;
+    background: #161616 !important; /* Đen xám mịn tách biệt */
+    border: 1px solid rgba(212, 175, 55, 0.25) !important; /* Viền vàng mảnh */
+    border-radius: 12px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
+    padding: 20px !important;
+}
+
+/* Nhãn chữ (Label) trên ô nhập liệu */
+.input-label,
+.flexible-checkbox label {
+    color: #f3e5ab !important; /* Sắc vàng nhạt thanh lịch */
+    font-weight: 600 !important;
+    letter-spacing: 0.5px;
+}
+
+/* Các ô input con bên trong thanh tìm kiếm */
+.date-range-picker,
+.select-custom {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(212, 175, 55, 0.2) !important;
+    border-radius: 4px !important;
+    color: #ffffff !important;
+}
+
+.date-range-picker input {
+    color: #ffffff !important;
+}
+
+/* Nút Tab chuyển đổi giữa các bộ lọc (Phòng / Package) */
+.toggle-tabs .tab-btn {
+    background: transparent !important;
+    color: #a0aec0 !important;
+    border: 1px solid rgba(212, 175, 55, 0.2) !important;
+    border-radius: 4px;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-tabs .tab-btn.active {
+    background: linear-gradient(90deg, #aa7c11, #d4af37) !important; /* Cắt màu Gold */
+    color: #000000 !important; /* Chữ đen nổi bật trên nền vàng */
+    font-weight: bold !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+/* Thanh trượt khoảng giá noUiSlider */
+.noUi-connect {
+    background: #d4af37 !important; /* Dải trượt màu vàng gold */
+}
+.price-values {
+    color: #d4af37 !important;
+    font-weight: bold;
+}
+
+/* --- 3. Thẻ Hiển Thị Phòng (Room Card) Cao Cấp --- */
+.room-card {
+    position: relative;
+    background: #161616 !important; /* Khối thẻ đen xám */
+    border: 1px solid rgba(212, 175, 55, 0.15) !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+    transition: transform 0.3s ease, border-color 0.3s ease !important;
+}
+
+.room-card:hover {
+    transform: translateY(-5px) !important;
+    border-color: #d4af37 !important; /* Sáng viền vàng khi hover */
+}
+
+/* Nội dung chữ trong thẻ phòng */
+.room-details {
+    background: #161616 !important;
+    color: #ffffff !important;
+    padding: 15px;
+}
+
+.room-details h3 {
+    color: #ffffff !important; /* Số phòng trắng */
+}
+
+.room-details h4 {
+    color: #d4af37 !important; /* Tên loại phòng màu vàng Gold */
+    font-weight: 700;
+}
+
+.room-details p {
+    color: #cbd5e1 !important; /* Chữ miêu tả xám sáng dễ nhìn */
+}
+
+/* Thẻ trạng thái phòng (Ví dụ: Hết phòng / Trống) */
+.room-badge {
+    background: #d4af37 !important;
+    color: #000000 !important;
+    font-weight: bold;
+    border-radius: 0 0 0 8px;
+}
+
+/* --- 4. Hệ Thống Nút Bấm Đặt Phòng & Tìm Kiếm --- */
+.btn-book-room,
+.btn-search {
+    display: inline-block;
+    background: transparent !important;
+    color: #d4af37 !important;
+    border: 2px solid #d4af37 !important; /* Outline viền vàng tinh tế giống trang chủ */
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 22px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+}
+
+.btn-book-room:hover,
+.btn-search:hover {
+    background: linear-gradient(90deg, #aa7c11, #d4af37) !important; /* Đổ đầy dải vàng khi hover */
+    color: #000000 !important; /* Đổi màu chữ sang đen */
+    border-color: transparent !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+}
+
+/* --- 5. Khối Sub-menu Ẩn Thẻ Phòng --- */
+.room-submenu {
+    background: rgba(13, 13, 13, 0.95) !important;
+    backdrop-filter: blur(5px);
+}
+
+.btn-submenu-action {
+    background: linear-gradient(90deg, #aa7c11, #d4af37) !important;
+    color: #000000 !important;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* --- 6. Giao Diện Thông Báo Khi Hết Phòng --- */
+.rooms-grid > div[style*="text-align: center"] {
+    background: #161616 !important;
+    border: 1px solid rgba(212, 175, 55, 0.2) !important;
+    border-radius: 8px;
+}

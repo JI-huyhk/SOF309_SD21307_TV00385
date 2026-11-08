@@ -1,0 +1,128 @@
+:root {
+    --bg-color: #0a0a0a;
+    --card-bg: #1e1e1e;
+    --text-color: #ffffff;
+    --border-color: #2d2d2d;
+    --primary-teal: #00bcd4;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color) !important;
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container bao quanh bảng danh sách */
+.table-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 50px auto;
+    padding: 25px;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.table-title {
+    font-size: 1.6rem;
+    color: var(--primary-teal);
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+}
+
+/* Định dạng bảng tối ưu chuẩn chỉnh */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    background: var(--card-bg);
+}
+.custom-table th, .custom-table td {
+    border: 1px solid var(--border-color);
+    padding: 14px 12px;
+    text-align: center;
+    font-size: 0.95rem;
+}
+.custom-table th {
+    background: #121212;
+    color: var(--primary-teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+.custom-table td {
+    color: var(--text-color);
+}
+.custom-table tbody tr {
+    transition: background-color 0.2s;
+}
+.custom-table tbody tr:hover {
+    background-color: #252525; /* Hiệu ứng hover dòng tinh tế */
+}
+
+/* Các nút hành động điều hướng (Detail, Update, Delete) */
+.btn-action {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.btn-detail {
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+.btn-detail:hover {
+    background: #ffffff;
+    color: #000000;
+}
+.btn-update {
+    color: var(--primary-teal);
+    border: 1px solid var(--primary-teal);
+}
+.btn-update:hover {
+    background: var(--primary-teal);
+    color: #000000;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
+}
+.btn-delete {
+    color: #f44336;
+    border: 1px solid #f44336;
+    background: transparent;
+    cursor: pointer;
+}
+.btn-delete:hover {
+    background: #f44336;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(244, 67, 54, 0.3);
+}
+
+/* Badge phân biệt chức vụ / vai trò */
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.badge-admin { background: rgba(244, 67, 54, 0.15); color: #f44336; border: 1px solid #f44336; }
+.badge-partner { background: rgba(255, 152, 0, 0.15); color: #ff9800; border: 1px solid #ff9800; }
+.badge-customer { background: rgba(76, 175, 80, 0.15); color: #4caf50; border: 1px solid #4caf50; }

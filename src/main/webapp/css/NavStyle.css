@@ -1,0 +1,143 @@
+/* ==========================================================================
+   2. NAVBAR
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0);
+    position: relative;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    line-height: 1;
+}
+
+.hotel-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hotel-sub {
+    font-size: 0.9rem;
+    color: #00f2fe;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #00f2fe;
+}
+
+.btn-sign {
+    background: #00f2fe;
+    color: #333 !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold !important;
+    transition: background 0.3s !important;
+}
+
+.btn-sign:hover {
+    background: #4facfe;
+    color: #fff !important;
+}
+.hamburger-menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.hamburger-icon-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.hamburger-icon-btn:hover {
+    color: #00bcd4;
+}
+
+.hamburger-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ffffff;
+    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1100;
+    margin-top: 10px;
+    border: 1px solid #eee;
+}
+
+.hamburger-dropdown.show {
+    display: block;
+}
+
+.hamburger-dropdown a, .hamburger-dropdown div.menu-item {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s;
+    box-sizing: border-box;
+}
+
+.hamburger-dropdown a:hover, .hamburger-dropdown div.menu-item:hover {
+    background-color: #f5f5f5;
+    color: #00bcd4;
+}
+
+.toggle-theme-switch {
+    margin-left: auto;
+    pointer-events: none;
+}
+.user-avatar-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00bcd4;
+    background: #fff;
+}
+.user-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    border-left: 1px solid rgba(255,255,255,0.2);
+    padding-left: 15px;
+}

@@ -1,0 +1,29 @@
+.footer-dark-strip {
+    background: #141414;
+    color: #ffffff;
+    padding: 40px 60px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 3px solid #d2ae29;
+    box-sizing: border-box;
+    width: 100%;
+}
+/* Biến toàn bộ body thành một cột dọc với chiều cao tối thiểu bằng 100% màn hình */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/*
+Bạn cần bọc TOÀN BỘ nội dung nằm phía TREN footer (header, main content...)
+vào một thẻ div chung, ví dụ class là .main-wrapper
+*/
+.main-wrapper {
+    flex: 1; /* Lệnh này giúp phần nội dung chính phình to ra chiếm hết khoảng trống, đẩy bạt footer xuống đáy */
+}
+
+/* Footer của bạn không cần thêm position gì cả, tự nó sẽ an vị ở dưới cùng */
